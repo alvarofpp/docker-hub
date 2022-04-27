@@ -15,4 +15,5 @@ lint:
 		lint-commit ${LINT_COMMIT_TARGET_BRANCH} \
 		&& lint-markdown \
 		&& lint-dockerfile \
-		&& lint-yaml"
+		&& lint-yaml \
+		&& lint-shell-script"
