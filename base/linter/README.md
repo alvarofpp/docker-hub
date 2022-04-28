@@ -1,11 +1,11 @@
-# Linter for docker images
+# Docker image with base linters
 
 [![Docker Hub](https://img.shields.io/badge/-Docker_Hub-0062cc?style=for-the-badge&logo=Docker&logoColor=white)][docker-hub]
 
-A docker image to ensure the code quality of your docker image.
+In this Docker image, you will find some base linters for your projects.
 
 ```shell
-docker pull alvarofpp/docker-image-linter
+docker pull alvarofpp/base-linter
 ```
 
 Linters in this image and which command to invoke it:
@@ -24,15 +24,14 @@ exceptionally the `.shellcheckrc` file must be in the main directory.
 ## How to use
 
 ```shell
-docker run --rm -v $(pwd):/app alvarofpp/docker-image-linter " \
+docker run --rm -v $(pwd):/app alvarofpp/base-linter " \
   lint-commit origin/main \
   && lint-markdown \
-  && lint-dockerfile \
   && lint-shell-script \
   && lint-yaml"
 ```
 
-[docker-hub]: https://hub.docker.com/repository/docker/alvarofpp/docker-image-linter
+[docker-hub]: https://hub.docker.com/r/alvarofpp/base-linter
 [linter-commit]: https://github.com/conventional-changelog/commitlint
 [linter-dockerfile]: https://github.com/replicatedhq/dockerfilelint
 [linter-markdown]: https://github.com/igorshubovych/markdownlint-cli

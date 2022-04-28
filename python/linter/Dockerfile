@@ -1,4 +1,4 @@
-FROM alvarofpp/base-linter:latest
+FROM alvarofpp/base:linter
 
 # Install packages
 RUN apk --no-cache add python3 \
@@ -11,10 +11,6 @@ RUN pip3 install \
   flake8-quotes==3.3.1 \
   flake8-commas==2.1.0 \
   flake8-docstrings==1.6.0
-
-# Install linter for Dockerfile (https://github.com/replicatedhq/dockerfilelint)
-RUN npm install -g \
-    dockerfilelint@1.8.0
 
 # Adds shell commands
 COPY ./commands/*.sh /usr/bin/

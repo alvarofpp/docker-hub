@@ -20,6 +20,10 @@ RUN npm install -g \
     @commitlint/config-conventional@15.0.0 \
     @commitlint/cli@15.0.0
 
+# Install linter for Dockerfile (https://github.com/replicatedhq/dockerfilelint)
+RUN npm install -g \
+    dockerfilelint@1.8.0
+
 # Install linter for Markdown (https://github.com/igorshubovych/markdownlint-cli)
 RUN npm install -g \
     markdownlint-cli@0.30.0
