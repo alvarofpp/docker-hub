@@ -5,13 +5,13 @@
 This image is based on Alpine Linux image, you can use this image to run bash scripts.
 
 ```shell
-docker pull alvarofpp/alpine-bash
+docker pull alvarofpp/alpine:bash
 ```
 
 ## How to use
 
 ```shell
-docker run --rm -v $(pwd):/app alvarofpp/alpine-bash ./my_script.sh
+docker run --rm -v $(pwd):/app alvarofpp/alpine:bash ./my_script.sh
 ```
 
-[docker-hub]: https://hub.docker.com/r/alvarofpp/alpine-bash
+[docker-hub]: https://hub.docker.com/r/alvarofpp/alpine

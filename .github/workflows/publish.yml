@@ -35,6 +35,10 @@ jobs:
             fi
 
             read -a PATHS <<< "$FILENAME"
+            if [[ ! (${#PATHS[@]} > 2) ]]; then
+              continue
+            fi
+
             DOCKER_IMAGE_NAME="${{ secrets.DOCKERHUB_USERNAME }}/${PATHS[0]}:${PATHS[1]}"
             if [[ " ${DOCKER_IMAGES[@]} " =~ " ${DOCKER_IMAGE_NAME} " ]]; then
               continue

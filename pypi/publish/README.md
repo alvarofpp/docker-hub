@@ -5,7 +5,7 @@
 A Docker image to publish your package on [Python Package Index (PyPi)][pypi].
 
 ```shell
-docker pull alvarofpp/pypi-publish
+docker pull alvarofpp/pypi:publish
 ```
 
 ## How to use
@@ -14,7 +14,7 @@ docker pull alvarofpp/pypi-publish
 docker run --rm \
   -e USER=__token__ \
   -e PASSWORD=YOUR_TOKEN \
-  -v $(pwd):/app alvarofpp/pypi-publish
+  -v $(pwd):/app alvarofpp/pypi:publish
 ```
 
 You need to pass `USER` and `PASSWORD` to work.
@@ -39,15 +39,15 @@ jobs:
         run: echo "REPOSITORY_NAME=$(echo '${{ github.repository }}' | awk -F '/' '{print $2}')" >> $GITHUB_ENV
         shell: bash
       - name: Docker pull
-        run: docker pull alvarofpp/pypi-publish
+        run: docker pull alvarofpp/pypi:publish
       - name: Publish ${{ env.REPOSITORY_NAME }} (${{ github.ref_name }}) to PyPi
         run: |
           docker run --rm \
           -e USER=__token__ \
           -e PASSWORD=${{ secrets.PYPI_API_TOKEN }} \
           -v $(pwd):/app \
-          alvarofpp/pypi-publish
+          alvarofpp/pypi:publish
 ```
 
-[docker-hub]: https://hub.docker.com/r/alvarofpp/pypi-publish
+[docker-hub]: https://hub.docker.com/r/alvarofpp/pypi
 [pypi]: https://pypi.org/

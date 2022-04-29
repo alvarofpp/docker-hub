@@ -5,7 +5,7 @@
 A docker image to ensure the code quality of your Python projects.
 
 ```shell
-docker pull alvarofpp/python-linter
+docker pull alvarofpp/python:linter
 ```
 
 Linters in this image and which command to invoke it:
@@ -25,13 +25,13 @@ exceptionally the `.shellcheckrc` file must be in the main directory.
 ## How to use
 
 ```shell
-docker run --rm -v $(pwd):/app alvarofpp/python-linter " \
+docker run --rm -v $(pwd):/app alvarofpp/python:linter " \
   lint-commit origin/main \
   lint-markdown \
   lint-python"
 ```
 
-[docker-hub]: https://hub.docker.com/r/alvarofpp/python-linter
+[docker-hub]: https://hub.docker.com/r/alvarofpp/python
 [linter-commit]: https://github.com/conventional-changelog/commitlint
 [linter-dockerfile]: https://github.com/replicatedhq/dockerfilelint
 [linter-markdown]: https://github.com/igorshubovych/markdownlint-cli
