@@ -14,6 +14,7 @@ RUN apk --no-cache add findutils  \
     git \
     nodejs \
     npm
+RUN git config --global --add safe.directory /app
 
 # Install linter for commits (https://github.com/conventional-changelog/commitlint)
 RUN npm install -g \
