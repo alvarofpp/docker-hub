@@ -18,8 +18,8 @@ RUN git config --global --add safe.directory /app
 
 # Install linter for commits (https://github.com/conventional-changelog/commitlint)
 RUN npm install -g \
-    @commitlint/config-conventional@15.0.0 \
-    @commitlint/cli@15.0.0
+    @commitlint/config-conventional@17.4.4 \
+    @commitlint/cli@17.4.4
 
 # Install linter for Dockerfile (https://github.com/replicatedhq/dockerfilelint)
 RUN npm install -g \
@@ -27,7 +27,7 @@ RUN npm install -g \
 
 # Install linter for Markdown (https://github.com/igorshubovych/markdownlint-cli)
 RUN npm install -g \
-    markdownlint-cli@0.30.0
+    markdownlint-cli@0.33.0
 
 # Install linter for Shell scripts (https://github.com/koalaman/shellcheck)
 RUN apk --no-cache add shellcheck
