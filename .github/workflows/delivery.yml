@@ -1,15 +1,16 @@
 ---
-name: Publishes the docker image on DockerHub.
+name: Delivery
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
