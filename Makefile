@@ -1,7 +1,7 @@
 # Variables
 ROOT=$(shell pwd)
 DOCKER_IMAGE_LINTER=alvarofpp/base:linter
-LINT_COMMIT_TARGET_BRANCH=origin/main
+LINT_COMMIT_TARGET=origin/main
 
 # Commands
 .PHONY: install-hooks
@@ -10,9 +10,9 @@ install-hooks:
 
 .PHONY: lint
 lint:
-	@docker pull ${DOCKER_IMAGE_LINTER}
+	@#docker pull ${DOCKER_IMAGE_LINTER}
 	@docker run --rm -v ${ROOT}:/app ${DOCKER_IMAGE_LINTER} " \
-		lint-commit ${LINT_COMMIT_TARGET_BRANCH} \
+		lint-commit ${LINT_COMMIT_TARGET} \
 		&& lint-markdown \
 		&& lint-dockerfile \
 		&& lint-yaml \

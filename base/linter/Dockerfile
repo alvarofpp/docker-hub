@@ -1,4 +1,4 @@
-FROM alpine:3.15
+FROM alpine:3.18
 
 # Set environment variables
 ENV HOME=/root
@@ -18,8 +18,8 @@ RUN git config --global --add safe.directory /app
 
 # Install linter for commits (https://github.com/conventional-changelog/commitlint)
 RUN npm install -g \
-    @commitlint/config-conventional@17.4.4 \
-    @commitlint/cli@17.4.4
+    @commitlint/config-conventional@17.6.6 \
+    @commitlint/cli@17.6.6
 
 # Install linter for Dockerfile (https://github.com/replicatedhq/dockerfilelint)
 RUN npm install -g \
@@ -45,5 +45,4 @@ COPY ./.lint/* ${LINT_CONFIG_PATH}/
 
 # Workdir and entrypoint
 WORKDIR ${WORKDIR}
-
 ENTRYPOINT ["docker-entrypoint"]

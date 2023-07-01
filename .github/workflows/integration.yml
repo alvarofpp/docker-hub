@@ -1,13 +1,23 @@
 ---
-name: Check linters
+name: Integration
 
 on:
   pull_request:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
   lint:
     runs-on: ubuntu-latest
+    container:
+      image: alvarofpp/base:linter
     steps:
-      - uses: actions/checkout@v2
-      - run: make lint
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - run: git config --global --add safe.directory $GITHUB_WORKSPACE
+      - run: lint-commit origin/main
+      - run: lint-markdown
+      - run: lint-dockerfile
+      - run: lint-yaml
+      - run: lint-shell-script
