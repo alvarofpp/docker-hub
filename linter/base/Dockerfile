@@ -22,8 +22,8 @@ RUN npm install -g \
     @commitlint/cli@18.4.4
 
 # Install linter for Dockerfile (https://github.com/hadolint/hadolint)
-RUN wget https://github.com/hadolint/hadolint/releases/download/v2.12.0/hadolint-Linux-x86_64 -P /tmp
-RUN apk add /tmp/hadolint-Linux-x86_64
+RUN wget --no-verbose -O /bin/hadolint https://github.com/hadolint/hadolint/releases/download/v2.12.0/hadolint-Linux-x86_64 && \
+    chmod +x /bin/hadolint
 
 # Install linter for Markdown (https://github.com/igorshubovych/markdownlint-cli)
 RUN npm install -g \
@@ -36,7 +36,7 @@ RUN apk --no-cache add shellcheck
 RUN apk --no-cache add yamllint
 
 # Adds shell commands
-COPY ./commands/*.sh /usr/bin/
+COPY ./commands/* /usr/bin/
 
 # Default lint configurations
 RUN mkdir -p ${LINT_CONFIG_PATH} ${LINT_CUSTOM_CONFIG_PATH}

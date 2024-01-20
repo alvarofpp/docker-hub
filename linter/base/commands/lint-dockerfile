@@ -8,4 +8,4 @@ if [[ -z "${FILES}" ]]; then
   exit 0
 fi
 
-echo "${FILES}" | xargs hadolint
+echo "${FILES}" | xargs hadolint --config "${LINT_CONFIG_PATH}"/.hadolint.yaml
