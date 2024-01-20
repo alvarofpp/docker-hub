@@ -10,7 +10,7 @@ install-hooks:
 
 .PHONY: lint
 lint:
-	@#docker pull ${DOCKER_IMAGE_LINTER}
+	@docker pull ${DOCKER_IMAGE_LINTER}
 	@docker run --rm -v ${ROOT}:/app ${DOCKER_IMAGE_LINTER} " \
 		lint-commit ${LINT_COMMIT_TARGET} \
 		&& lint-markdown \

@@ -10,7 +10,7 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     container:
-      image: alvarofpp/base:linter
+      image: alvarofpp/linter:base
     steps:
       - uses: actions/checkout@v3
         with:
