@@ -1,6 +1,6 @@
 # Variables
 ROOT=$(shell pwd)
-DOCKER_IMAGE_LINTER=alvarofpp/base:linter
+DOCKER_IMAGE_LINTER=alvarofpp/linter:base
 LINT_COMMIT_TARGET=origin/main
 
 # Commands

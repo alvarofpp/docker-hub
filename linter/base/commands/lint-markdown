@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euo pipefail
 
 DIR=${1:-"."}
 FILES=$(find-unignored-files "${DIR}" ".+\\.\\(md\\|markdown\\)$")

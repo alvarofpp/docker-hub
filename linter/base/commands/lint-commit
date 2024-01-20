@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euo pipefail
 
 TARGET_BRANCH=${1:-"main"}
 TARGET_HEAD_COMMIT=$(git rev-parse "${TARGET_BRANCH}")

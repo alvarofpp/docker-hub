@@ -10,13 +10,13 @@ docker pull alvarofpp/base:linter
 
 Linters in this image and which command to invoke it:
 
-| Linter                          | Command                       | Config file         |
-|---------------------------------|-------------------------------|---------------------|
+| Linter                          | Command                      | Config file         |
+|---------------------------------|------------------------------|---------------------|
 | [Commit (git)][linter-commit]   | `lint-commit <target_branch>` | `.commitlintrc`     |
-| [Dockerfile][linter-dockerfile] | `lint-dockerfile`             | `.dockerfilelintrc` |
-| [Markdown][linter-markdown]     | `lint-markdown`               | `.markdownlintrc`   |
-| [Shell script][linter-shell]    | `lint-shell-script`           | `.shellcheckrc`     |
-| [YAML][linter-yaml]             | `lint-yaml`                   | `.yamllint`         |
+| [Dockerfile][linter-dockerfile] | `lint-dockerfile`            | `.dockerfilelintrc` |
+| [Markdown][linter-markdown]     | `lint-markdown`              | `.markdownlintrc`   |
+| [Shell script][linter-shell]    | `lint-shell`           | `.shellcheckrc`     |
+| [YAML][linter-yaml]             | `lint-yaml`                  | `.yamllint`         |
 
 You can create a `.lint/` directory with your linters configs,
 exceptionally the `.shellcheckrc` file must be in the main directory.
@@ -27,7 +27,7 @@ exceptionally the `.shellcheckrc` file must be in the main directory.
 docker run --rm -v $(pwd):/app alvarofpp/base:linter " \
   lint-commit origin/main \
   && lint-markdown \
-  && lint-shell-script \
+  && lint-shell \
   && lint-yaml"
 ```
 
