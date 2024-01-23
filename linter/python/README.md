@@ -15,7 +15,7 @@ Linters in this image and which command to invoke it:
 | [Commit (git)][linter-commit]   | `lint-commit <target_branch>` | `.commitlintrc`     |
 | [Dockerfile][linter-dockerfile] | `lint-dockerfile`             | `.dockerfilelintrc` |
 | [Markdown][linter-markdown]     | `lint-markdown`               | `.markdownlintrc`   |
-| [Python][linter-python]         | `lint-python`                 | `.flake8`           |
+| [Python][linter-python]         | `lint-python`                 | `.ruff.toml`        |
 | [Shell script][linter-shell]    | `lint-shell-script`           | `.shellcheckrc`     |
 | [YAML][linter-yaml]             | `lint-yaml`                   | `.yamllint`         |
 
@@ -35,6 +35,6 @@ docker run --rm -v $(pwd):/app alvarofpp/python:linter " \
 [linter-commit]: https://github.com/conventional-changelog/commitlint
 [linter-dockerfile]: https://github.com/replicatedhq/dockerfilelint
 [linter-markdown]: https://github.com/igorshubovych/markdownlint-cli
-[linter-python]: https://github.com/PyCQA/flake8
+[linter-python]: https://github.com/astral-sh/ruff
 [linter-shell]: https://github.com/koalaman/shellcheck
 [linter-yaml]: https://github.com/adrienverge/yamllint
