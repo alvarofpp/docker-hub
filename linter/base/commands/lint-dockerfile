@@ -1,0 +1,16 @@
+#!/bin/bash
+if [[ "${DEBUG}" == "true" ]]; then
+  set -x
+fi
+set -euo pipefail
+
+echo "Applying Dockerfile linter."
+
+DIR=${1:-"."}
+FILES=$(find-unignored-files "${DIR}" "\\(^\\|.*\\/\\)Dockerfile$")
+
+if [[ -z "${FILES}" ]]; then
+  exit 0
+fi
+
+echo "${FILES}" | xargs hadolint --config "${LINT_CONFIG_PATH}"/.hadolint.yaml

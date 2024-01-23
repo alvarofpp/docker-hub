@@ -1,4 +1,7 @@
 #!/bin/bash
+if [[ "${DEBUG}" == "true" ]]; then
+  set -x
+fi
 
 DIR=${1:-"."}
 FILTER=${2:-".*"}

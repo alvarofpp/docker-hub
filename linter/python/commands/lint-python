@@ -1,0 +1,16 @@
+#!/bin/bash
+if [[ "${DEBUG}" == "true" ]]; then
+  set -x
+fi
+set -euo pipefail
+
+echo "Applying Python linter."
+
+DIR=${1:-"."}
+FILES=$(find-unignored-files "${DIR}" ".+\\.py$")
+
+if [[ -z "${FILES}" ]]; then
+  exit 0
+fi
+
+echo "${FILES}" | xargs ruff check --config="${LINT_CONFIG_PATH}"/.ruff.toml

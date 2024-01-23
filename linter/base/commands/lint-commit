@@ -1,4 +1,10 @@
 #!/bin/bash
+if [[ "${DEBUG}" == "true" ]]; then
+  set -x
+fi
+set -euo pipefail
+
+echo "Applying Commit linter."
 
 TARGET_BRANCH=${1:-"main"}
 TARGET_HEAD_COMMIT=$(git rev-parse "${TARGET_BRANCH}")

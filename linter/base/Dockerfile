@@ -1,4 +1,4 @@
-FROM alpine:3.18
+FROM alpine:3.19.0
 
 # Set environment variables
 ENV HOME=/root
@@ -18,16 +18,16 @@ RUN git config --global --add safe.directory /app
 
 # Install linter for commits (https://github.com/conventional-changelog/commitlint)
 RUN npm install -g \
-    @commitlint/config-conventional@17.6.6 \
-    @commitlint/cli@17.6.6
+    @commitlint/config-conventional@18.4.4 \
+    @commitlint/cli@18.4.4
 
-# Install linter for Dockerfile (https://github.com/replicatedhq/dockerfilelint)
-RUN npm install -g \
-    dockerfilelint@1.8.0
+# Install linter for Dockerfile (https://github.com/hadolint/hadolint)
+RUN wget --no-verbose -O /bin/hadolint https://github.com/hadolint/hadolint/releases/download/v2.12.0/hadolint-Linux-x86_64 && \
+    chmod +x /bin/hadolint
 
 # Install linter for Markdown (https://github.com/igorshubovych/markdownlint-cli)
 RUN npm install -g \
-    markdownlint-cli@0.33.0
+    markdownlint-cli@0.38.0
 
 # Install linter for Shell scripts (https://github.com/koalaman/shellcheck)
 RUN apk --no-cache add shellcheck
@@ -36,10 +36,10 @@ RUN apk --no-cache add shellcheck
 RUN apk --no-cache add yamllint
 
 # Adds shell commands
-COPY ./commands/*.sh /usr/bin/
-RUN find /usr/bin -type f -name "*.sh" | while read NAME ; do mv "${NAME}" "${NAME%.sh}" ; done
+COPY ./commands/* /usr/bin/
 
 # Default lint configurations
+# hadolint ignore=SC2086
 RUN mkdir -p ${LINT_CONFIG_PATH} ${LINT_CUSTOM_CONFIG_PATH}
 COPY ./.lint/* ${LINT_CONFIG_PATH}/
 
