@@ -39,6 +39,7 @@ RUN apk --no-cache add yamllint
 COPY ./commands/* /usr/bin/
 
 # Default lint configurations
+# hadolint ignore=SC2086
 RUN mkdir -p ${LINT_CONFIG_PATH} ${LINT_CUSTOM_CONFIG_PATH}
 COPY ./.lint/* ${LINT_CONFIG_PATH}/
 
