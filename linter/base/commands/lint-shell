@@ -1,5 +1,10 @@
 #!/bin/bash
+if [[ "${DEBUG}" == "true" ]]; then
+  set -x
+fi
 set -euo pipefail
+
+echo "Applying Shell Script linter."
 
 DIR=${1:-"."}
 FILES=$(find-unignored-files "${DIR}" | xargs file --mime-type | grep "text/x-shellscript" | cut -d':' -f1)

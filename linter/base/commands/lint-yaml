@@ -1,5 +1,10 @@
 #!/bin/bash
+if [[ "${DEBUG}" == "true" ]]; then
+  set -x
+fi
 set -euo pipefail
+
+echo "Applying YAML linter."
 
 DIR=${1:-"."}
 FILES=$(find-unignored-files "${DIR}" ".+\\.ya?ml$")
