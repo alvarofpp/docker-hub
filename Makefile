@@ -3,7 +3,7 @@ ROOT=$(shell pwd)
 DEBUG=false
 
 ## Lint
-DOCKER_IMAGE_LINTER=alvarofpp/linter:base
+DOCKER_IMAGE_LINTER=alvarofpp/linter:latest
 LINT_COMMIT_TARGET=origin/main
 
 # Commands
@@ -19,4 +19,4 @@ lint:
 		&& lint-markdown \
 		&& lint-dockerfile \
 		&& lint-yaml \
-		&& lint-shell"
+		&& lint-shell-script"
