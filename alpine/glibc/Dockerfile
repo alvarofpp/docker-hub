@@ -1,4 +1,4 @@
-FROM alpine:3.15
+FROM alpine:3.19.1
 
 # Set environment variables
 ENV GLIBC_VER=2.34-r0
